@@ -19,6 +19,9 @@ ROS_DISTRO=foxy
 ROS_ROOT=/opt/ros/${ROS_DISTRO}
 ARCH=$(uname --m)
 
+# Suppress git warnings
+git config --global advice.detachedHead false
+
 locale  # check for UTF-8
 
 sudo apt update && sudo apt install locales
