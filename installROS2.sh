@@ -30,7 +30,7 @@ export LANG=en_US.UTF-8
 sudo apt-get update
 sudo apt-get install -y --no-install-recommends \
 		curl \
-		wget \ 
+		wget \
 		gnupg2 \
 		lsb-release
 sudo rm -rf /var/lib/apt/lists/*
