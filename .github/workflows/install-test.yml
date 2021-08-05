@@ -14,5 +14,5 @@ jobs:
       - name: Run install script
         run: |
           ./installROS2.sh
-          source /opt/ros2/foxy/setup.bash
+          source /opt/ros/foxy/setup.bash
           ros2
