@@ -110,3 +110,4 @@ sudo rm -rf /var/lib/apt/lists/*
 
 # build it!
 sudo colcon build --merge-install --install-base ${ROS_ROOT}
+sudo colcon build --merge-install --install-base ${ROS_ROOT}
