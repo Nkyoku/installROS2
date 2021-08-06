@@ -89,6 +89,7 @@ git clone --branch yaml-cpp-0.6.0 https://github.com/jbeder/yaml-cpp yaml-cpp-0.
     make -j$(nproc) && \
     sudo cp libyaml-cpp.so.0.6.0 /usr/lib/${ARCH}-linux-gnu/ && \
     sudo ln -s /usr/lib/${ARCH}-linux-gnu/libyaml-cpp.so.0.6.0 /usr/lib/${ARCH}-linux-gnu/libyaml-cpp.so.0.6
+    cd ../../
 
 # https://answers.ros.org/question/325245/minimal-ros2-installation/?answer=325249#post-id-325249
 mkdir -p src
