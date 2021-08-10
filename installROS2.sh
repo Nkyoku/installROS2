@@ -87,8 +87,8 @@ git clone --branch yaml-cpp-0.6.0 https://github.com/jbeder/yaml-cpp yaml-cpp-0.
     cd build && \
     cmake -DBUILD_SHARED_LIBS=ON .. && \
     make -j$(nproc) && \
-    sudo cp libyaml-cpp.so.0.6.0 /usr/lib/${ARCH}-linux-gnu/ && \
-    sudo ln -s /usr/lib/${ARCH}-linux-gnu/libyaml-cpp.so.0.6.0 /usr/lib/${ARCH}-linux-gnu/libyaml-cpp.so.0.6
+    sudo cp -f libyaml-cpp.so.0.6.0 /usr/lib/${ARCH}-linux-gnu/ && \
+    sudo ln -sf /usr/lib/${ARCH}-linux-gnu/libyaml-cpp.so.0.6.0 /usr/lib/${ARCH}-linux-gnu/libyaml-cpp.so.0.6 && \
     cd ../../
 
 # https://answers.ros.org/question/325245/minimal-ros2-installation/?answer=325249#post-id-325249
@@ -98,6 +98,7 @@ cat ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
 vcs import src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
 
 # download unreleased packages
+git clone -b foxy https://github.com/ros/diagnostics.git src/diagnostics
 git clone --branch ros2 https://github.com/Kukanani/vision_msgs src/vision_msgs
 git clone --branch ${ROS_DISTRO} https://github.com/ros2/demos demos
 cp -r demos/demo_nodes_cpp src
@@ -106,7 +107,8 @@ rm -r -f demos
 
 # install dependencies using rosdep
 sudo apt-get update
-sudo rosdep init  
+sudo rm -f /etc/ros/rosdep/sources.list.d/20-default.list
+sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers qt_gui"
 sudo rm -rf /var/lib/apt/lists/*
