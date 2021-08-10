@@ -24,7 +24,7 @@ sudo rm -rf installROS2
 ```
 
 ## Notes
-<b>This script does not modify ~/.bashrc unline the original one.</b>
+<b>This script does not modify ~/.bashrc unlike the original one.</b>
 
 ## Release Notes
 <b>August, 2021</b>
