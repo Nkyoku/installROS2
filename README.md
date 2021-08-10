@@ -14,7 +14,7 @@ In order to run the script:
 cd ~
 git clone https://github.com/Nkyoku/installROS2.git
 cd installROS2
-./installROS2
+./installROS2.sh
 ```
 
 After the installation, remove garbage
